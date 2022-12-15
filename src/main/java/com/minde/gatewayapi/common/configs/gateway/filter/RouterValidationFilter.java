@@ -1,4 +1,4 @@
-package com.minde.gatewayapi.common.configs.gateway;
+package com.minde.gatewayapi.common.configs.gateway.filter;
 
 
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -8,10 +8,11 @@ import java.util.List;
 import java.util.function.Predicate;
 
 @Component
-public class RouterValidation {
+public class RouterValidationFilter {
     public static final List<String> openApiEndpoints= List.of(
             "/auth/register",
-            "/auth/login"
+            "/auth/login",
+            "/auth/extend"
     );
 
     public Predicate<ServerHttpRequest> isSecured =

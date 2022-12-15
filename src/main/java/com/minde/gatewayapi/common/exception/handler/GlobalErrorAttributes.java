@@ -3,6 +3,10 @@ package com.minde.gatewayapi.common.exception.handler;
 
 import com.minde.gatewayapi.common.exception.ErrorAttributesKey;
 import com.minde.gatewayapi.common.exception.UnAuthorizedException;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.SignatureException;
+import io.jsonwebtoken.UnsupportedJwtException;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.reactive.error.DefaultErrorAttributes;
 import org.springframework.core.annotation.MergedAnnotations;
@@ -25,7 +29,12 @@ record ExceptionRule(Class<?> exceptionClass, HttpStatus status){}
 @Component
 public class GlobalErrorAttributes extends DefaultErrorAttributes {
     private final List<ExceptionRule> exceptionsRules = List.of(
-            new ExceptionRule(UnAuthorizedException.class, HttpStatus.UNAUTHORIZED)
+            new ExceptionRule(UnAuthorizedException.class, HttpStatus.UNAUTHORIZED),
+            new ExceptionRule(MalformedJwtException.class, HttpStatus.BAD_REQUEST),
+            new ExceptionRule(ExpiredJwtException.class, HttpStatus.BAD_REQUEST),
+            new ExceptionRule(UnsupportedJwtException.class, HttpStatus.BAD_REQUEST),
+            new ExceptionRule(IllegalArgumentException.class, HttpStatus.BAD_REQUEST),
+            new ExceptionRule(SignatureException.class, HttpStatus.BAD_REQUEST)
     );
 
 

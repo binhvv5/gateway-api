@@ -1,5 +1,6 @@
 package com.minde.gatewayapi.common.configs.gateway;
 
+import com.minde.gatewayapi.common.configs.gateway.filter.GlobalCustomFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 public class ApiGatewayConfiguration {
 
-    private final AuthenticationFilter filter;
+    private final GlobalCustomFilter filter;
 
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder) {
