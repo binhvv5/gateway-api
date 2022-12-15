@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: "local"
+  application:
+    name: gateway-api
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+server:
+  port: 8980
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+

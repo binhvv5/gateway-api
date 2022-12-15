@@ -1,0 +1,8 @@
+jwt:
+  secret: Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lowerCaseServiceId: true
