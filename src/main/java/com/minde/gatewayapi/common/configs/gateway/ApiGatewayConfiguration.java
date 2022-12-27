@@ -19,10 +19,15 @@ public class ApiGatewayConfiguration {
 //                .route("user-service", r -> r.path("/users/**")
 //                        .filters(f -> f.filter(filter))
 //                        .uri("lb://user-service"))
+                .route("translation-service", r -> r.path("/api/translate/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://translation-server"))
 
                 .route("authorization-service", r -> r.path("/auth/**")
                         .filters(f -> f.filter(filter))
                         .uri("lb://authorization-server"))
                 .build();
     }
+
+
 }

@@ -4,9 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum ErrorAttributesKey {
-    CODE("code"),
-    MESSAGE("message"),
-    TIME("timestamp");
+    CODE("responseCd"),
+    MESSAGE("responseMsg"),
+    TIME("responseTs");
 
     private final String key;
     ErrorAttributesKey(String key) {

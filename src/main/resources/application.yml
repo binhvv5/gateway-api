@@ -11,6 +11,11 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
+#  sleuth:
+#    sampler:
+#      probability: 1.0 #trace all request
+#  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
+#    baseUrl: http://localhost:9411
 server:
   port: 8980
 eureka:
@@ -18,3 +23,8 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
